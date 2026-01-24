@@ -61,7 +61,7 @@ const Footer = () => {
                 <div className="footer-main">
                     {/* Company Info */}
                     <div className="footer-column footer-about">
-                        <img src={logo} alt="EM Taxi Touristique" className="footer-logo" />
+                        <img src={logo} alt="EM Taxi Touristique - Logo - Transport Premium au Maroc" className="footer-logo" />
                         <h3 className="footer-company-name">EM Taxi Touristique</h3>
                         <p className="footer-description">
                             {t('footer.description')}

@@ -56,10 +56,10 @@ const Contact = () => {
     ];
 
     return (
-        <section className="contact" id="contact">
+        <section className="contact" id="contact" aria-label="Contactez-nous pour réserver votre transport premium">
             <div className="contact-container">
                 {/* Section Header */}
-                <div className="contact-header">
+                <header className="contact-header">
                     <p className="contact-label">{t('contact.label')}</p>
                     <h2 className="contact-title">
                         {t('contact.title')} <span className="highlight">{t('contact.titleHighlight')}</span>
@@ -67,7 +67,7 @@ const Contact = () => {
                     <p className="contact-subtitle">
                         {t('contact.subtitle')}
                     </p>
-                </div>
+                </header>
 
                 {/* Contact Content Grid */}
                 <div className="contact-content">

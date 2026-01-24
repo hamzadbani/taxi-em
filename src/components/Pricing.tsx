@@ -60,10 +60,10 @@ const Pricing = () => {
     ];
 
     return (
-        <section className="pricing" id="tarifs">
+        <section className="pricing" id="tarifs" aria-label="Nos tarifs et formules premium">
             <div className="pricing-container">
                 {/* Section Header */}
-                <div className="pricing-header">
+                <header className="pricing-header">
                     <p className="pricing-label">{t('pricing.label')}</p>
                     <h2 className="pricing-title">
                         {t('pricing.title')} <span className="highlight">{t('pricing.titleHighlight')}</span>
@@ -71,7 +71,7 @@ const Pricing = () => {
                     <p className="pricing-subtitle">
                         {t('pricing.subtitle')}
                     </p>
-                </div>
+                </header>
 
                 {/* Pricing Cards */}
                 <div className="pricing-grid">

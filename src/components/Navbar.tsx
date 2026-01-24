@@ -81,7 +81,9 @@ const Navbar = () => {
             <div className="navbar-container">
                 {/* Logo */}
                 <div className="navbar-logo">
-                    <img src={logo} alt="EM-taxi touristique" />
+                    <a href="#accueil" aria-label="EM Taxi Touristique - Accueil">
+                        <img src={logo} alt="EM Taxi Touristique - Logo - Transport Premium au Maroc" />
+                    </a>
                 </div>
 
                 {/* Desktop Navigation Links */}

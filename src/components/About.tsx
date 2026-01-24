@@ -49,7 +49,7 @@ const About = () => {
     ];
 
     return (
-        <section className="about" id="apropos">
+        <section className="about" id="apropos" aria-label="À propos de EM Taxi Touristique">
             <div className="about-container">
                 {/* Section Label */}
                 <p className="about-label">{t('about.label')}</p>
@@ -96,8 +96,12 @@ const About = () => {
 
                     {/* Right Side - Image */}
                     <div className="about-image">
-                        <img src={driverImg} alt="Chauffeur professionnel EM TAXI TOURISTIQUE" />
-                        <div className="about-badge">
+                        <img 
+                            src={driverImg} 
+                            alt="Chauffeur professionnel EM Taxi Touristique - Transport premium au Maroc depuis 2009" 
+                            loading="lazy"
+                        />
+                        <div className="about-badge" aria-label={`15+ ${t('about.excellence.badge')}`}>
                             <div className="about-badge-value">15+</div>
                             <div className="about-badge-label">{t('about.excellence.badge')}</div>
                         </div>

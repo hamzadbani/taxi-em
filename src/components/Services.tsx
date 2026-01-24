@@ -41,10 +41,10 @@ const Services = () => {
     ];
 
     return (
-        <section className="services" id="services">
+        <section className="services" id="services" aria-label="Nos services de transport premium">
             <div className="services-container">
                 {/* Section Header */}
-                <div className="services-header" data-aos="fade-up">
+                <header className="services-header" data-aos="fade-up">
                     <p className="services-label">{t('services.label')}</p>
                     <h2 className="services-title">
                         {t('services.title')} <span className="highlight">{t('services.titleHighlight')}</span>
@@ -52,7 +52,7 @@ const Services = () => {
                     <p className="services-subtitle">
                         {t('services.subtitle')}
                     </p>
-                </div>
+                </header>
 
                 {/* Services Grid */}
                 <div className="services-grid">
@@ -67,7 +67,11 @@ const Services = () => {
                             >
                                 {/* Background Image */}
                                 <div className="service-card-bg">
-                                    <img src={service.image} alt={service.title} />
+                                    <img 
+                                        src={service.image} 
+                                        alt={`${service.title} - EM Taxi Touristique - ${t('services.subtitle')}`}
+                                        loading="lazy"
+                                    />
                                     <div className="service-card-overlay"></div>
                                 </div>
 

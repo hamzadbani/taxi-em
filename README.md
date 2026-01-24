@@ -7,6 +7,7 @@ A modern, responsive website for EM Taxi Touristique - a premium luxury transpor
 - **Multi-language Support**: Available in French, English, and Arabic
 - **Responsive Design**: Fully responsive layout optimized for all devices
 - **Modern UI/UX**: Clean, professional interface with smooth animations
+- **SEO Optimized**: Comprehensive SEO implementation with meta tags, structured data, and semantic HTML
 - **Scroll Progress Indicator**: Visual progress bar showing page scroll position
 - **Welcome Assistant**: Interactive virtual assistant for user guidance
 - **Contact Form**: Integrated EmailJS for seamless contact form submissions
@@ -143,6 +144,22 @@ Add or modify translations in the `src/locales/` directory:
 - `en.json` - English translations
 - `fr.json` - French translations
 - `ar.json` - Arabic translations
+
+### SEO Configuration
+The website includes comprehensive SEO optimization:
+
+- **Meta Tags**: Dynamic meta tags that update based on selected language
+- **Structured Data**: JSON-LD schema for LocalBusiness (Schema.org)
+- **Open Graph**: Social media sharing optimization
+- **Twitter Cards**: Twitter sharing optimization
+- **Semantic HTML**: Proper use of semantic HTML5 elements (`<header>`, `<section>`, `<article>`, etc.)
+- **Alt Text**: Descriptive alt attributes for all images
+- **Sitemap**: XML sitemap located at `/public/sitemap.xml`
+- **Robots.txt**: Search engine crawler instructions at `/public/robots.txt`
+
+The SEO component (`src/components/SEO.tsx`) automatically updates meta tags and structured data when the language changes.
+
+**📖 For detailed SEO guidelines and best practices, see [SEO_GUIDELINES.md](./SEO_GUIDELINES.md)**
 
 ## 🏗️ Build for Production
 
