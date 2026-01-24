@@ -41,7 +41,7 @@ const Services = () => {
         <section className="services" id="services">
             <div className="services-container">
                 {/* Section Header */}
-                <div className="services-header">
+                <div className="services-header" data-aos="fade-up">
                     <p className="services-label">NOS SERVICES PREMIUM</p>
                     <h2 className="services-title">
                         Solutions de Transport <span className="highlight">d'Excellence</span>
@@ -53,10 +53,15 @@ const Services = () => {
 
                 {/* Services Grid */}
                 <div className="services-grid">
-                    {services.map((service) => {
+                    {services.map((service, index) => {
                         const IconComponent = service.icon;
                         return (
-                            <div key={service.id} className="service-card">
+                            <div
+                                key={service.id}
+                                className="service-card"
+                                data-aos="fade-up"
+                                data-aos-delay={index * 100}
+                            >
                                 {/* Background Image */}
                                 <div className="service-card-bg">
                                     <img src={service.image} alt={service.title} />
