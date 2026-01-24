@@ -7,6 +7,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
+import WelcomeAssistant from './components/WelcomeAssistant'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './App.css'
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="app">
       <ScrollProgress />
+      <WelcomeAssistant />
       <Navbar />
       <Hero />
       <Services />
