@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Phone, Mail, MessageSquare, Send } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.css';
 
 const Contact = () => {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -30,25 +32,25 @@ const Contact = () => {
         {
             id: 1,
             icon: Phone,
-            title: 'Téléphone',
+            title: t('contact.info.phone.title'),
             value: '+212 7 62 72 87 06',
-            subtitle: "L'appel pour réserver",
+            subtitle: t('contact.info.phone.subtitle'),
             link: 'tel:+212762728706',
         },
         {
             id: 2,
             icon: MessageSquare,
-            title: 'WhatsApp',
+            title: t('contact.info.whatsapp.title'),
             value: '+212 7 62 72 87 06',
-            subtitle: "L'appel pour réserver",
+            subtitle: t('contact.info.whatsapp.subtitle'),
             link: 'https://wa.me/212762728706',
         },
         {
             id: 3,
             icon: Mail,
-            title: 'Email',
+            title: t('contact.info.email.title'),
             value: 'contact@emtaxi.fr',
-            subtitle: 'Cliquez pour envoyer un email',
+            subtitle: t('contact.info.email.subtitle'),
             link: 'mailto:contact@emtaxi.fr',
         },
     ];
@@ -58,12 +60,12 @@ const Contact = () => {
             <div className="contact-container">
                 {/* Section Header */}
                 <div className="contact-header">
-                    <p className="contact-label">CONTACTEZ-NOUS</p>
+                    <p className="contact-label">{t('contact.label')}</p>
                     <h2 className="contact-title">
-                        Contact <span className="highlight">EM Taxi Touristique</span>
+                        {t('contact.title')} <span className="highlight">{t('contact.titleHighlight')}</span>
                     </h2>
                     <p className="contact-subtitle">
-                        Nous sommes à votre écoute pour répondre à vos questions et vous offrir un service exceptionnel
+                        {t('contact.subtitle')}
                     </p>
                 </div>
 
@@ -74,48 +76,48 @@ const Contact = () => {
                         <form className="contact-form">
                             {/* Name Field */}
                             <div className="form-group">
-                                <label htmlFor="name">Votre Nom *</label>
+                                <label htmlFor="name">{t('contact.form.name')}</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Jean Dupont"
+                                    placeholder={t('contact.form.namePlaceholder')}
                                     required
                                 />
                             </div>
 
                             {/* Email Field */}
                             <div className="form-group">
-                                <label htmlFor="email">Adresse Email *</label>
+                                <label htmlFor="email">{t('contact.form.email')}</label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    placeholder="jeandupont@exemple.com"
+                                    placeholder={t('contact.form.emailPlaceholder')}
                                     required
                                 />
                             </div>
 
                             {/* Phone Field */}
                             <div className="form-group">
-                                <label htmlFor="phone">Numéro de Téléphone</label>
+                                <label htmlFor="phone">{t('contact.form.phone')}</label>
                                 <input
                                     type="tel"
                                     id="phone"
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    placeholder="+212 6XX XX XX XX"
+                                    placeholder={t('contact.form.phonePlaceholder')}
                                 />
                             </div>
 
                             {/* Service Type Dropdown */}
                             <div className="form-group">
-                                <label htmlFor="serviceType">Type de Service *</label>
+                                <label htmlFor="serviceType">{t('contact.form.service')} *</label>
                                 <select
                                     id="serviceType"
                                     name="serviceType"
@@ -123,37 +125,37 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                 >
-                                    <option value="">Sélectionnez un service</option>
-                                    <option value="Standard">Standard - Berline Luxe</option>
-                                    <option value="Affaires">Affaires - Berline Executive</option>
-                                    <option value="Premium">Premium - Van/SUV de Luxe</option>
-                                    <option value="Transfert Aéroport">Transfert Aéroport</option>
-                                    <option value="Professionnel & Entreprise">Professionnel & Entreprise</option>
-                                    <option value="Événements & Occasions Spéciales">Événements & Occasions Spéciales</option>
-                                    <option value="Service à la Demande">Service à la Demande</option>
-                                    <option value="Autre">Autre</option>
+                                    <option value="">{t('contact.form.servicePlaceholder')}</option>
+                                    <option value="Standard">{t('contact.form.serviceOptions.standard')}</option>
+                                    <option value="Affaires">{t('contact.form.serviceOptions.business')}</option>
+                                    <option value="Premium">{t('contact.form.serviceOptions.premium')}</option>
+                                    <option value="Transfert Aéroport">{t('contact.form.serviceOptions.airport')}</option>
+                                    <option value="Professionnel & Entreprise">{t('contact.form.serviceOptions.businessService')}</option>
+                                    <option value="Événements & Occasions Spéciales">{t('contact.form.serviceOptions.events')}</option>
+                                    <option value="Service à la Demande">{t('contact.form.serviceOptions.onDemand')}</option>
+                                    <option value="Autre">{t('contact.form.serviceOptions.other')}</option>
                                 </select>
                             </div>
 
                             {/* Message Field */}
                             <div className="form-group">
-                                <label htmlFor="message">Votre Message *</label>
+                                <label htmlFor="message">{t('contact.form.message')}</label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    placeholder="Comment pouvons-nous vous aider ?"
+                                    placeholder={t('contact.form.messagePlaceholder')}
                                     rows={5}
                                     required
                                 />
-                                <span className="character-count">{formData.message.length}/500 caractères</span>
+                                <span className="character-count">{formData.message.length}/500 {t('contact.form.characters')}</span>
                             </div>
 
                             {/* Submit Button */}
                             <button type="button" className="contact-submit-btn">
                                 <Send size={20} />
-                                <span>Envoyer le Message</span>
+                                <span>{t('contact.form.send')}</span>
                             </button>
                         </form>
                     </div>
@@ -187,9 +189,9 @@ const Contact = () => {
                             <div className="contact-email-icon">
                                 <Mail size={32} />
                             </div>
-                            <h3 className="contact-email-title">Contactez-nous par Email</h3>
+                            <h3 className="contact-email-title">{t('contact.emailCta.title')}</h3>
                             <p className="contact-email-description">
-                                Envoyez-nous un email et nous vous répondrons dans les plus brefs délais.
+                                {t('contact.emailCta.description')}
                             </p>
                             <a href="mailto:contact@emtaxi.fr" className="contact-email-btn">
                                 <Mail size={18} />

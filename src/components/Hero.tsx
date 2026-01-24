@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import videoSrc from '../assets/video car.mp4';
 import './Hero.css';
 
 const Hero = () => {
+    const { t } = useLanguage();
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -35,13 +37,13 @@ const Hero = () => {
             {/* Content */}
             <div className={`hero-content ${isLoaded ? 'hero-content-loaded' : ''}`}>
                 <div className="hero-text">
-                    <p className="hero-subtitle">UN SERVICE SUR MESURE POUR VOS DÉPLACEMENTS</p>
-                    <h1 className="hero-title">Mise à disposition de chauffeur</h1>
+                    <p className="hero-subtitle">{t('hero.subtitle')}</p>
+                    <h1 className="hero-title">{t('hero.title')}</h1>
                 </div>
 
                 <div className="hero-cta">
                     <a href="#contact" className="btn-reserve">
-                        JE RÉSERVE MON CHAUFFEUR
+                        {t('hero.cta')}
                     </a>
                 </div>
             </div>

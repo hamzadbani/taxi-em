@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { LanguageProvider } from './contexts/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -24,17 +25,19 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <ScrollProgress />
-      <WelcomeAssistant />
-      <Navbar />
-      <Hero />
-      <Services />
-      <Pricing />
-      <About />
-      <Contact />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="app">
+        <ScrollProgress />
+        <WelcomeAssistant />
+        <Navbar />
+        <Hero />
+        <Services />
+        <Pricing />
+        <About />
+        <Contact />
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
 
