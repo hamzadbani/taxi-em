@@ -12,6 +12,11 @@ const Contact = () => {
         serviceType: '',
         message: '',
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
+        type: null,
+        message: '',
+    });
 
     useEffect(() => {
         // Check if there's a pre-selected service type from URL hash
@@ -24,7 +29,76 @@ const Contact = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
+        
+        // Limit message to 500 characters
+        if (name === 'message' && value.length > 500) {
+            return;
+        }
+        
         setFormData(prev => ({ ...prev, [name]: value }));
+        // Clear status when user starts typing
+        if (submitStatus.type) {
+            setSubmitStatus({ type: null, message: '' });
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        // Validate message length
+        if (formData.message.length > 500) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Le message ne peut pas dépasser 500 caractères',
+            });
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            // API endpoint - adjust URL based on your environment
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:9090/api/send-email.php';
+            
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setSubmitStatus({
+                    type: 'success',
+                    message: data.message || 'Votre message a été envoyé avec succès!',
+                });
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    serviceType: '',
+                    message: '',
+                });
+            } else {
+                setSubmitStatus({
+                    type: 'error',
+                    message: data.message || 'Erreur lors de l\'envoi du message. Veuillez réessayer.',
+                });
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+            setSubmitStatus({
+                type: 'error',
+                message: 'Erreur de connexion. Assurez-vous que le serveur PHP est démarré.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
 
@@ -73,7 +147,7 @@ const Contact = () => {
                 <div className="contact-content">
                     {/* Left Side - Contact Form */}
                     <div className="contact-form-wrapper">
-                        <form className="contact-form">
+                        <form className="contact-form" onSubmit={handleSubmit}>
                             {/* Name Field */}
                             <div className="form-group">
                                 <label htmlFor="name">{t('contact.form.name')}</label>
@@ -152,10 +226,25 @@ const Contact = () => {
                                 <span className="character-count">{formData.message.length}/500 {t('contact.form.characters')}</span>
                             </div>
 
+                            {/* Status Message */}
+                            {submitStatus.type && (
+                                <div className={`form-status ${submitStatus.type}`}>
+                                    {submitStatus.message}
+                                </div>
+                            )}
+
                             {/* Submit Button */}
-                            <button type="button" className="contact-submit-btn">
+                            <button 
+                                type="submit" 
+                                className="contact-submit-btn"
+                                disabled={isSubmitting}
+                            >
                                 <Send size={20} />
+<<<<<<< Updated upstream
                                 <span>{t('contact.form.send')}</span>
+=======
+                                <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer le Message'}</span>
+>>>>>>> Stashed changes
                             </button>
                         </form>
                     </div>

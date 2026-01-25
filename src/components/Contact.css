@@ -156,6 +156,28 @@
     margin-top: -0.5rem;
 }
 
+/* Form Status Messages */
+.form-status {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeInUp 0.3s ease;
+}
+
+.form-status.success {
+    background: rgba(76, 175, 80, 0.2);
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    color: #4caf50;
+}
+
+.form-status.error {
+    background: rgba(244, 67, 54, 0.2);
+    border: 2px solid rgba(244, 67, 54, 0.5);
+    color: #f44336;
+}
+
 /* Submit Button */
 .contact-submit-btn {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
@@ -184,6 +206,17 @@
 
 .contact-submit-btn:active {
     transform: translateY(-1px);
+}
+
+.contact-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-submit-btn:disabled:hover {
+    transform: none;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
 }
 
 .form-privacy {
