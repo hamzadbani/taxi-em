@@ -44,6 +44,22 @@ const Contact = () => {
 
             if (result.success) {
                 setStatus('success');
+
+                // WhatsApp Redirection Logic
+                const whatsappNumber = '212762728706'; // Updated to match contactInfo
+                const message = `Bonjour EM Taxi, 
+Une nouvelle demande de service a été envoyée :
+*Nom*: ${formData.name}
+*Service*: ${formData.serviceType}
+*Email*: ${formData.email}
+*Message*: ${formData.message}`;
+
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+
                 setFormData({ name: '', email: '', phone: '', serviceType: '', message: '' });
                 // Reset status to idle after 5 seconds
                 setTimeout(() => setStatus('idle'), 5000);

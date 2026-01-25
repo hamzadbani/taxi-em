@@ -37,13 +37,15 @@ if (empty($name) || empty($email) || empty($serviceType) || empty($message)) {
 }
 
 // Configuration
-$to_email = '';
-$whatsapp_number = '';
+$to_email = 'rhplusentreprise@gmail.com';
+$from_email = 'noreply@emtaxi.fr'; // Use a domain-based email for Hostinger
+$whatsapp_number = '212762728706'; // Updated to match Contact.tsx
 $site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 $logo_url = $site_url . '/logo.png';
 
 // Construct HTML Email
 $subject = "Nouvelle réservation - $serviceType - EM Taxi Touristique";
+$subject = "=?UTF-8?B?" . base64_encode($subject) . "?="; // Encoding subject for UTF-8
 
 $email_content = "
 <html>
@@ -103,8 +105,9 @@ $email_content = "
 
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: EM Taxi Site <noreply@emtaxi.fr>" . "\r\n";
-$headers .= "Reply-To: $email" . "\r\n";
+$headers .= "From: EM Taxi Site <$from_email>" . "\r\n";
+$headers .= "Reply-To: $name <$email>" . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 $mail_success = mail($to_email, $subject, $email_content, $headers);
 
