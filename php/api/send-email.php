@@ -47,7 +47,7 @@ if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Email configuration
-$to = 'contact@emtaxi.fr';
+$to = 'contact@em-taxi.ma';
 $subject = "Nouveau message de contact - EM Taxi Touristique";
 $from = "noreply@emtaxi.fr";
 
