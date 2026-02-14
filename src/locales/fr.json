@@ -44,20 +44,23 @@
       "name": "Standard",
       "description": "Parfait pour les transferts aéroport et les trajets en ville",
       "category": "BERLINE LUXE",
-      "vehicle": "Mercedes Classe E, BMW Série 5"
+      "vehicle": "Mercedes Classe E, BMW Série 5",
+      "button": "Réserver Standard"
     },
     "business": {
       "name": "Affaires",
       "badge": "LE PLUS POPULAIRE",
       "description": "Idéal pour les dirigeants et voyages professionnels",
       "category": "BERLINE EXECUTIVE",
-      "vehicle": "Mercedes Classe S, BMW Série 7"
+      "vehicle": "Mercedes Classe S, BMW Série 7",
+      "button": "Réserver Affaires"
     },
     "premium": {
       "name": "Premium",
       "description": "Luxe ultime pour les occasions spéciales",
       "category": "VAN / SUV DE LUXE",
-      "vehicle": "Mercedes V-Class, Range Rover"
+      "vehicle": "Mercedes V-Class, Range Rover",
+      "button": "Réserver Premium"
     },
     "features": {
       "driver": "Chauffeur professionnel",

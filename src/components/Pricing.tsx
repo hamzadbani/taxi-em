@@ -18,7 +18,7 @@ const Pricing = () => {
                 t('pricing.features.chargers'),
                 t('pricing.features.passengers3'),
             ],
-            buttonText: t('pricing.button'),
+            buttonText: t('pricing.standard.button'),
             highlighted: false,
         },
         {
@@ -34,7 +34,7 @@ const Pricing = () => {
                 t('pricing.features.privacy'),
                 t('pricing.features.passengers3')
             ],
-            buttonText: t('pricing.button'),
+            buttonText: t('pricing.business.button'),
             highlighted: true,
         },
         {
@@ -50,7 +50,7 @@ const Pricing = () => {
                 t('pricing.features.lighting'),
                 t('pricing.features.passengers7')
             ],
-            buttonText: t('pricing.button'),
+            buttonText: t('pricing.premium.button'),
             highlighted: false,
         },
     ];

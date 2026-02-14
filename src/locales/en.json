@@ -44,20 +44,23 @@
       "name": "Standard",
       "description": "Perfect for airport transfers and city trips",
       "category": "LUXURY SEDAN",
-      "vehicle": "Mercedes E-Class, BMW 5 Series"
+      "vehicle": "Mercedes E-Class, BMW 5 Series",
+      "button": "Book Standard"
     },
     "business": {
       "name": "Business",
       "badge": "MOST POPULAR",
       "description": "Ideal for executives and business travel",
       "category": "EXECUTIVE SEDAN",
-      "vehicle": "Mercedes S-Class, BMW 7 Series"
+      "vehicle": "Mercedes S-Class, BMW 7 Series",
+      "button": "Book Business"
     },
     "premium": {
       "name": "Premium",
       "description": "Ultimate luxury for special occasions",
       "category": "LUXURY VAN / SUV",
-      "vehicle": "Mercedes V-Class, Range Rover"
+      "vehicle": "Mercedes V-Class, Range Rover",
+      "button": "Book Premium"
     },
     "features": {
       "driver": "Professional chauffeur",

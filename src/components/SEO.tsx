@@ -12,7 +12,7 @@ const SEO = () => {
         const updateMetaTag = (name: string, content: string, isProperty = false) => {
             const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
             let meta = document.querySelector(selector) as HTMLMetaElement;
-            
+
             if (!meta) {
                 meta = document.createElement('meta');
                 if (isProperty) {
@@ -28,18 +28,18 @@ const SEO = () => {
         // SEO content based on language
         const seoContent = {
             fr: {
-                title: 'EM Taxi Touristique - Transport Premium & Chauffeur Privé au Maroc | Depuis 2009',
-                description: 'EM Taxi Touristique offre des services de transport de luxe au Maroc depuis 2009. Chauffeur privé, transferts aéroport, transport d\'affaires et événements. Mercedes S-Class, BMW. Service 24/7.',
+                title: 'EM Taxi Touristique : Chauffeur Privé & Transport Premium au Maroc',
+                description: 'EM Taxi Touristique : transport de luxe et chauffeur privé au Maroc. Transferts aéroport, trajets d\'affaires et touristiques. Service premium 24/7.',
                 keywords: 'taxi maroc, chauffeur privé maroc, transport de luxe maroc, transfert aéroport maroc, taxi touristique maroc, mercedes chauffeur maroc, transport premium maroc, EM Taxi Touristique',
             },
             en: {
-                title: 'EM Taxi Touristique - Premium Transportation & Private Chauffeur in Morocco | Since 2009',
-                description: 'EM Taxi Touristique offers luxury transportation services in Morocco since 2009. Private chauffeur, airport transfers, business transportation and events. Mercedes S-Class, BMW. 24/7 service.',
+                title: 'EM Taxi Touristique: Private Chauffeur & Premium Transport in Morocco',
+                description: 'EM Taxi Touristique: luxury transport and private chauffeur in Morocco. Airport transfers, business and tourist trips. Premium 24/7 service.',
                 keywords: 'taxi morocco, private chauffeur morocco, luxury transport morocco, airport transfer morocco, tourist taxi morocco, mercedes chauffeur morocco, premium transport morocco, EM Taxi Touristique',
             },
             ar: {
-                title: 'EM تاكسي توريستيك - النقل الفاخر وسائق خاص في المغرب | منذ 2009',
-                description: 'EM تاكسي توريستيك تقدم خدمات النقل الفاخر في المغرب منذ 2009. سائق خاص، نقل المطار، نقل الأعمال والفعاليات. مرسيدس S-Class، BMW. خدمة 24/7.',
+                title: 'EM تاكسي توريستيك: سائق خاص ونقل فاخر في المغرب',
+                description: 'EM تاكسي توريستيك: نقل فاخر وسائق خاص في المغرب. نقل المطار، رحلات عمل وسياحة. خدمة ممتازة على مدار الساعة 24/7.',
                 keywords: 'تاكسي المغرب, سائق خاص المغرب, نقل فاخر المغرب, نقل المطار المغرب, تاكسي سياحي المغرب, مرسيدس سائق المغرب, نقل ممتاز المغرب, EM تاكسي توريستيك',
             },
         };
@@ -74,11 +74,11 @@ const SEO = () => {
         '@id': 'https://emtaxi.fr/#organization',
         name: 'EM Taxi Touristique',
         alternateName: 'EM Taxi',
-        description: language === 'en' 
+        description: language === 'en'
             ? 'Premium luxury transportation services in Morocco since 2009. Private chauffeur, airport transfers, business transportation.'
             : language === 'ar'
-            ? 'خدمات النقل الفاخر في المغرب منذ 2009. سائق خاص، نقل المطار، نقل الأعمال.'
-            : 'Services de transport de luxe au Maroc depuis 2009. Chauffeur privé, transferts aéroport, transport d\'affaires.',
+                ? 'خدمات النقل الفاخر في المغرب منذ 2009. سائق خاص، نقل المطار، نقل الأعمال.'
+                : 'Services de transport de luxe au Maroc depuis 2009. Chauffeur privé, transferts aéroport, transport d\'affaires.',
         url: 'https://emtaxi.fr',
         telephone: '+212762728706',
         email: 'contact@emtaxi.fr',

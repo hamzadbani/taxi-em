@@ -300,7 +300,7 @@ const Contact = () => {
                                         <IconComponent size={24} />
                                     </div>
                                     <div className="contact-info-content">
-                                        <h4 className="contact-info-title">{info.title}</h4>
+                                        <h3 className="contact-info-title">{info.title}</h3>
                                         <p className="contact-info-value">{info.value}</p>
                                         <p className="contact-info-subtitle">{info.subtitle}</p>
                                     </div>

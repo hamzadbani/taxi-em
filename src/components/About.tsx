@@ -5,7 +5,7 @@ import './About.css';
 
 const About = () => {
     const { t } = useLanguage();
-    
+
     const features = [
         {
             id: 1,
@@ -78,7 +78,7 @@ const About = () => {
                                             <IconComponent size={20} />
                                         </div>
                                         <div className="about-feature-content">
-                                            <h4 className="about-feature-title">{feature.title}</h4>
+                                            <h3 className="about-feature-title">{feature.title}</h3>
                                             <p className="about-feature-description">{feature.description}</p>
                                         </div>
                                     </div>
@@ -89,16 +89,16 @@ const About = () => {
                         {/* Quote Box */}
                         <div className="about-quote">
                             <p>
-                                <strong>{t('about.excellence.quote')}</strong>
+                                <span className="quote-text">{t('about.excellence.quote')}</span>
                             </p>
                         </div>
                     </div>
 
                     {/* Right Side - Image */}
                     <div className="about-image">
-                        <img 
-                            src={driverImg} 
-                            alt="Chauffeur professionnel EM Taxi Touristique - Transport premium au Maroc depuis 2009" 
+                        <img
+                            src={driverImg}
+                            alt="Chauffeur professionnel EM Taxi Touristique - Transport premium au Maroc depuis 2009"
                             loading="lazy"
                         />
                         <div className="about-badge" aria-label={`15+ ${t('about.excellence.badge')}`}>

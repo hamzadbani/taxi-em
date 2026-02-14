@@ -133,7 +133,7 @@
     font-style: italic;
 }
 
-.about-quote strong {
+.quote-text {
     font-weight: 600;
     color: var(--color-dark);
 }
